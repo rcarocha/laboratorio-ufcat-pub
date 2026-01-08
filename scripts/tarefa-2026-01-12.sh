@@ -16,7 +16,7 @@ EOF
 read -p "Digite qualquer tecla quando estiver pronto. "
 
 sudo apt update
-sudo snap install netbeans --classic
 sudo apt -y install swi-prolog ghc default-jdk gh python3-pip python3-virtualenv spyder
+sudo snap install netbeans --classic
 
 
