@@ -9,14 +9,15 @@ Ref: Issue #11 em https://github.com/rcarocha/laboratorio-ufcat/issues/11
 Serão instalados (caso inexistentes) os pacotes: 
    prolog, haskell, java-jdk, netbeans
    gh (CLI github), python3-pip python3-virtualenv spyder
+   codeblocks
    
 IMPORTANTE: requer a indicação da senha do superusuário para execução do sudo
 
 EOF
-read -p "Digite qualquer tecla quando estiver pronto. "
+read -p "Digite qualquer tecla quando estiver pronto. Requer indicacao da senha sudo"
 
 sudo apt update
-sudo apt -y install swi-prolog ghc default-jdk gh python3-pip python3-virtualenv spyder
+sudo apt -y install swi-prolog ghc default-jdk gh python3-pip python3-virtualenv spyder codeblocks
 sudo snap install netbeans --classic
 
 
