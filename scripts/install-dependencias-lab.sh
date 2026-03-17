@@ -10,6 +10,7 @@ function all {
 
 function prerequisitos {
 	echo -- PREQUISITOS --
+	sudo apt update
 	sudo apt install -y lubuntu-desktop
 	sudo apt install -y wget
 	sudo apt install -y magic-wormhole
@@ -143,7 +144,7 @@ function chromium {
 }
 
 function virtualbox {
-	sudo apt  install -y virtualbox
+	# sudo apt  install -y virtualbox
 }
 
 
