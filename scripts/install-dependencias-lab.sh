@@ -132,7 +132,7 @@ function nano-pico {
 function geral {
 	github-cli
 	chromium
-	virtualbox
+	# virtualbox
 }
 
 function github-cli {
@@ -144,7 +144,7 @@ function chromium {
 }
 
 function virtualbox {
-	# sudo apt  install -y virtualbox
+	sudo apt  install -y virtualbox
 }
 
 
