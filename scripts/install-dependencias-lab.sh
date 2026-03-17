@@ -11,6 +11,7 @@ function all {
 function prerequisitos {
 	echo -- PREQUISITOS --
 	sudo apt update
+	sudo apt install firefox libreoffice -y
 	sudo apt install -y lubuntu-desktop
 	sudo apt install -y wget
 	sudo apt install -y magic-wormhole
