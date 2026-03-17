@@ -10,9 +10,10 @@ function all {
 
 function prerequisitos {
 	echo -- PREQUISITOS --
-	sudo apt  install -y wget
-	sudo apt  install -y magic-wormhole
-	sudo apt  install -y gh
+	sudo apt install -y lubuntu-desktop
+	sudo apt install -y wget
+	sudo apt install -y magic-wormhole
+	sudo apt install -y gh
 }
 
 function linguagens {
@@ -142,7 +143,7 @@ function chromium {
 }
 
 function virtualbox {
-	sudo apt  install -y virtualbox --install-suggests
+	sudo apt  install -y virtualbox
 }
 
 
