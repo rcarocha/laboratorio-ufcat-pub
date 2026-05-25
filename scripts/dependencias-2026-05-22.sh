@@ -14,8 +14,8 @@ cd /tmp/tarefas
 
 wget https://raw.githubusercontent.com/rcarocha/laboratorio-ufcat-pub/refs/heads/main/figuras/papel-parede-oficial.webp
 
-cp papel-parede-oficial.webp /usr/share/lubuntu/wallpapers/papel-parede-oficial.webp
-chmod u-w /usr/share/lubuntu/wallpapers/papel-parede-oficial.webp
+sudo cp papel-parede-oficial.webp /usr/share/lubuntu/wallpapers/papel-parede-oficial.webp
+sudo chmod u-w /usr/share/lubuntu/wallpapers/papel-parede-oficial.webp
 
 wget https://raw.githubusercontent.com/rcarocha/laboratorio-ufcat-pub/refs/heads/main/conf/dot.config/pcmanfm-qt/lxqt/settings.conf
 cp ~/.config/pcmanfm-qt/lxqt/settings.conf ~/.config/pcmanfm-qt/lxqt/settings.conf.bak
