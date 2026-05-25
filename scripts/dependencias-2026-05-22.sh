@@ -12,16 +12,17 @@ read -p "Digite qualquer tecla quando estiver pronto. Requer indicacao da senha 
 mkdir -p /tmp/tarefas
 cd /tmp/tarefas
 
-wget https://github.com/rcarocha/laboratorio-ufcat-pub/tree/main/figuras/papel-parede-oficial.webp
+wget https://raw.githubusercontent.com/rcarocha/laboratorio-ufcat-pub/refs/heads/main/figuras/papel-parede-oficial.webp
+
 cp papel-parede-oficial.webp /usr/share/lubuntu/wallpapers/papel-parede-oficial.webp
 chmod u-w /usr/share/lubuntu/wallpapers/papel-parede-oficial.webp
 
-wget https://github.com/rcarocha/laboratorio-ufcat-pub/tree/main/conf/dot.config/pcmanfm-qt/lxqt/settings.conf
+wget https://raw.githubusercontent.com/rcarocha/laboratorio-ufcat-pub/refs/heads/main/conf/dot.config/pcmanfm-qt/lxqt/settings.conf
 cp ~/.config/pcmanfm-qt/lxqt/settings.conf ~/.config/pcmanfm-qt/lxqt/settings.conf.bak
 cp settings.conf ~/.config/pcmanfm-qt/lxqt/
 chmod 444 ~/.config/pcmanfm-qt/lxqt/settings.conf
 
-sudo apt install -y kvm-ok
+sudo apt install -y cpu-checker
 sudo apt install -y umbrello
 sudo snap install dbeaver-ce --classic
 
