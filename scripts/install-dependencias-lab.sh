@@ -163,7 +163,8 @@ function virtualbox {
 	sudo apt  install -y virtualbox
 }
 
-
+mkdir /tmp/lab
+cd /tmp/lab
 all
 
 
