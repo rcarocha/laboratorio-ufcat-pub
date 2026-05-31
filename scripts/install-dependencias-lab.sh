@@ -11,11 +11,13 @@ function all {
 function prerequisitos {
 	echo -- PREQUISITOS --
 	sudo apt update
-	sudo apt install firefox libreoffice -y
+	sudo apt install -y firefox libreoffice
 	sudo apt install -y lubuntu-desktop
 	sudo apt install -y wget
 	sudo apt install -y magic-wormhole
 	sudo apt install -y gh
+	sudo apt install -y dos2unix
+	sudo apt install -y cpu-checker
 }
 
 function linguagens {
@@ -46,7 +48,6 @@ function javascript {
 	sudo apt  install -y nodejs
 }
 
-
 # Ambientes de Desenvolvimento
 
 function ide {
@@ -56,7 +57,12 @@ function ide {
 	visual-studio
 	geany-ide
 	portugol-studio
+	uml
 	# spyder
+}
+
+function uml {
+	sudo apt install -y umbrello
 }
 
 function netbeans {
@@ -69,6 +75,15 @@ function eclipse {
 
 function codeblocks {
 	sudo apt  install -y codeblocks
+}
+
+function bancodedados-cliente {
+	echo Cliente de Banco de Dados DBeaver	
+	sudo snap install dbeaver-ce --classic
+}
+
+function bancodedados-servico {
+# pendente: docker + mysql
 }
 
 function visual-studio {
