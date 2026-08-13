@@ -101,11 +101,13 @@ function bancodedados-cliente {
 }
 
 function bancodedados-servico-mysql {
-# pendente: docker + mysql
+	# pendente: docker + mysql
+	echo --- ATENCAO: instalacao mysql pendente ---
 }
 
 function bancodedados-servico-postgresql {
-# pendente: docker + postgresql
+	# pendente: docker + postgresql
+	echo --- ATENCAO: instalacao postgresql pendente ---
 }
 
 
