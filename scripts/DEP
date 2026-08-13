@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script oficial de instalacao de dependencias dos labs DC/UFCAT
+# Script OFICIAL de instalacao de dependencias dos labs DC/UFCAT
 
 TEMP_INSTALL_DIR=/tmp/lab-install
 
@@ -116,7 +116,7 @@ function visual-studio {
 	else
 		mkdir -p $TEMP_INSTALL_DIR
 		cd $TEMP_INSTALL_DIR
-		wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb/code_1.111.0-1772846623_amd64.deb
+		wget -4 https://vscode.download.prss.microsoft.com/dbazure/download/stable/ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb/code_1.111.0-1772846623_amd64.deb
 		echo 2b8b1a5b9c6fc14bd49920ce45c1b65798ab01dc3abab7aefd31102286e50ac4  code_1.111.0-1772846623_amd64.deb  > vscode-SHA256SUMS
 		sha256sum -c vscode-SHA256SUMS && sudo apt  install ./code_1.111.0-1772846623_amd64.deb
 		rm ./code_1.111.0-1772846623_amd64.deb
@@ -134,7 +134,7 @@ function portugol-studio {
 		mkdir -p $TEMP_INSTALL_DIR
 		cd $TEMP_INSTALL_DIR
 		echo 49f4d1807e883076d8a0c918acf99a1541abf139f96ad3e83fe0278858a552e5  portugol-studio-2.7.5-linux-x64.run.zip > portugol-studio-SHA256SUMS
-		wget https://github.com/UNIVALI-LITE/Portugol-Studio/releases/download/v2.7.5/portugol-studio-2.7.5-linux-x64.run.zip
+		wget -4 https://github.com/UNIVALI-LITE/Portugol-Studio/releases/download/v2.7.5/portugol-studio-2.7.5-linux-x64.run.zip
 		sha256sum -c portugol-studio-SHA256SUMS
 		unzip portugol-studio-2.7.5-linux-x64.run.zip
 		chmod u+x portugol-studio-2.7.5-linux-x64.run
