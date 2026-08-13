@@ -1,207 +1,84 @@
-#!/bin/bash
-
-# Script OFICIAL de instalacao de dependencias dos labs DC/UFCAT
-
-TEMP_INSTALL_DIR=/tmp/lab-install
-
-function all {
-	prerequisitos
-	linguagens
-	editores
-	geral
-	ide
-}
-
-function prerequisitos {
-	echo -- PREQUISITOS --
-	sudo apt update
-	sudo apt install -y firefox libreoffice
-	sudo apt install -y lubuntu-desktop
-	sudo apt install -y wget
-	sudo apt install -y magic-wormhole
-	sudo apt install -y gh
-	sudo apt install -y dos2unix
-	sudo apt install -y cpu-checker
-	sudo apt install -y boxes
-}
-
-function linguagens {
-	echo -- LINGUAGENS --
-	c-cpp
-	java
-	python3
-	javascript
-	haskell
-	prolog
-}
-
-function c-cpp {
-	echo CPP
-	sudo apt  install -y build-essential cmake
-}
-
-function java {
-	echo JAVA
-	sudo apt  install -y default-jdk
-}
-
-function python3 {
-	echo PYTHON3
-	sudo apt  install -y python3-pip python3-virtualenv
-}
-
-function javascript {
-	echo JAVASCRIPT
-	sudo apt  install -y nodejs
-}
-
-function haskell {
-	echo HASKELL
-	sudo apt install -y haskell-stack ghc
-}
-
-function prolog {
-	echo PROLOG
-	sudo apt install -y swi-prolog
-}
-
-# Ambientes de Desenvolvimento
-
-function ide {
-	netbeans
-	eclipse
-	codeblocks
-	visual-studio
-	geany-ide
-	portugol-studio
-	uml
-	bancodedados-cliente
-	# spyder
-}
-
-function uml {
-	sudo apt install -y umbrello
-}
-
-function netbeans {
-	sudo snap install netbeans --classic
-}
-
-function eclipse {
-	sudo snap install eclipse  --classic
-}
-
-function codeblocks {
-	sudo apt  install -y codeblocks
-}
-
-function bancodedados-cliente {
-	echo Cliente de Banco de Dados DBeaver	
-	sudo snap install dbeaver-ce --classic
-}
-
-function bancodedados-servico-mysql {
-# pendente: docker + mysql
-}
-
-function bancodedados-servico-postgresql {
-# pendente: docker + postgresql
-}
-
-
-function visual-studio {
-	echo Instalando Visual Studio
-	if [ -f "/usr/share/code/code" ]; then
-		echo Visual Studio JA instalado!
-	else
-		mkdir -p $TEMP_INSTALL_DIR
-		cd $TEMP_INSTALL_DIR
-		wget -4 https://vscode.download.prss.microsoft.com/dbazure/download/stable/ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb/code_1.111.0-1772846623_amd64.deb
-		echo 2b8b1a5b9c6fc14bd49920ce45c1b65798ab01dc3abab7aefd31102286e50ac4  code_1.111.0-1772846623_amd64.deb  > vscode-SHA256SUMS
-		sha256sum -c vscode-SHA256SUMS && sudo apt  install ./code_1.111.0-1772846623_amd64.deb
-		rm ./code_1.111.0-1772846623_amd64.deb
-	#   verificar erro em: https://askubuntu.com/questions/908800/what-does-this-apt-error-message-download-is-performed-unsandboxed-as-root
-	fi
-}
-
-
-function portugol-studio {
-	echo Instalando Portugol Studio
-	# instalacao eh interativa e depende de usuario (deixar como ultimo passo)
-	if [ -f "/usr/bin/portugol-studio" ]; then
-		echo "Portugol Studio ja instalado!"
-	else
-		mkdir -p $TEMP_INSTALL_DIR
-		cd $TEMP_INSTALL_DIR
-		echo 49f4d1807e883076d8a0c918acf99a1541abf139f96ad3e83fe0278858a552e5  portugol-studio-2.7.5-linux-x64.run.zip > portugol-studio-SHA256SUMS
-		wget -4 https://github.com/UNIVALI-LITE/Portugol-Studio/releases/download/v2.7.5/portugol-studio-2.7.5-linux-x64.run.zip
-		sha256sum -c portugol-studio-SHA256SUMS
-		unzip portugol-studio-2.7.5-linux-x64.run.zip
-		chmod u+x portugol-studio-2.7.5-linux-x64.run
-		sudo ./portugol-studio-2.7.5-linux-x64.run
-		rm ./portugol-studio-2.7.5-linux-x64.run
-	fi
-}
-
-function geany-ide {
-	sudo apt  install -y geany
-}
-
-function spyder {
-	sudo apt  install -y spyder
-}
-
-
-# EDITORES DE TEXTO
-
-function editores {
-	gedit
-	vim
-	nano-pico
-}
-
-function vim {
-	echo VIM ja instalado no sistema
-}
-
-function gedit {
-	sudo apt  -y install gedit
-	# alternativa: FeatherPad para lubuntu
-}
-
-function nano-pico {
-	# ja instalado
-	echo NANO/PICO ja instalado no sistema
-}
-
-
-# USO GERAL
-
-function geral {
-	github-cli
-	chromium
-	virtualbox
-}
-
-function github-cli {
-	sudo apt  install -y gh
-}
-
-function chromium {
-	sudo apt  install -y chromium-browser
-}
-
-function virtualbox {
-	sudo apt  install -y virtualbox
-}
-
-mkdir $TEMP_INSTALL_DIR
-cd $TEMP_INSTALL_DIR
-all
-
-
-echo --- Arquivos de instalacao temporarios mantidos em $TEMP_INSTALL_DIR
-
-
-
-
+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
+WQwt4YuSTNO8viO2V1VqgA==
