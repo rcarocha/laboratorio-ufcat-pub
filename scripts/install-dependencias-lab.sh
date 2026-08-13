@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Script OFICIAL de instalacao de dependencias dos labs DC/UFCAT
+
+TEMP_INSTALL_DIR=/tmp/lab-install
+
 function all {
 	prerequisitos
 	linguagens
@@ -18,6 +22,7 @@ function prerequisitos {
 	sudo apt install -y gh
 	sudo apt install -y dos2unix
 	sudo apt install -y cpu-checker
+	sudo apt install -y boxes
 }
 
 function linguagens {
@@ -26,6 +31,8 @@ function linguagens {
 	java
 	python3
 	javascript
+	haskell
+	prolog
 }
 
 function c-cpp {
@@ -48,6 +55,16 @@ function javascript {
 	sudo apt  install -y nodejs
 }
 
+function haskell {
+	echo HASKELL
+	sudo apt install -y haskell-stack ghc
+}
+
+function prolog {
+	echo PROLOG
+	sudo apt install -y swi-prolog
+}
+
 # Ambientes de Desenvolvimento
 
 function ide {
@@ -58,6 +75,7 @@ function ide {
 	geany-ide
 	portugol-studio
 	uml
+	bancodedados-cliente
 	# spyder
 }
 
@@ -82,33 +100,47 @@ function bancodedados-cliente {
 	sudo snap install dbeaver-ce --classic
 }
 
-function bancodedados-servico {
+function bancodedados-servico-mysql {
 # pendente: docker + mysql
 }
 
+function bancodedados-servico-postgresql {
+# pendente: docker + postgresql
+}
+
+
 function visual-studio {
 	echo Instalando Visual Studio
-	mkdir -p ~/Downloads/lab-dependencias
-	cd ~/Downloads/lab-dependencias
-	wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb/code_1.111.0-1772846623_amd64.deb
-	echo 2b8b1a5b9c6fc14bd49920ce45c1b65798ab01dc3abab7aefd31102286e50ac4  code_1.111.0-1772846623_amd64.deb  > vscode-SHA256SUMS
-	sha256sum -c vscode-SHA256SUMS
-	sudo apt  install ./code_1.111.0-1772846623_amd64.deb
-#   verificar erro em: https://askubuntu.com/questions/908800/what-does-this-apt-error-message-download-is-performed-unsandboxed-as-root
+	if [ -f "/usr/share/code/code" ]; then
+		echo Visual Studio JA instalado!
+	else
+		mkdir -p $TEMP_INSTALL_DIR
+		cd $TEMP_INSTALL_DIR
+		wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb/code_1.111.0-1772846623_amd64.deb
+		echo 2b8b1a5b9c6fc14bd49920ce45c1b65798ab01dc3abab7aefd31102286e50ac4  code_1.111.0-1772846623_amd64.deb  > vscode-SHA256SUMS
+		sha256sum -c vscode-SHA256SUMS && sudo apt  install ./code_1.111.0-1772846623_amd64.deb
+		rm ./code_1.111.0-1772846623_amd64.deb
+	#   verificar erro em: https://askubuntu.com/questions/908800/what-does-this-apt-error-message-download-is-performed-unsandboxed-as-root
+	fi
 }
 
 
 function portugol-studio {
 	echo Instalando Portugol Studio
 	# instalacao eh interativa e depende de usuario (deixar como ultimo passo)
-	mkdir -p ~/Downloads/lab-dependencias
-	cd ~/Downloads/lab-dependencias
-	echo 49f4d1807e883076d8a0c918acf99a1541abf139f96ad3e83fe0278858a552e5  portugol-studio-2.7.5-linux-x64.run.zip > portugol-studio-SHA256SUMS
-	wget https://github.com/UNIVALI-LITE/Portugol-Studio/releases/download/v2.7.5/portugol-studio-2.7.5-linux-x64.run.zip
-	sha256sum -c portugol-studio-SHA256SUMS
-	unzip portugol-studio-2.7.5-linux-x64.run.zip
-	chmod u+x portugol-studio-2.7.5-linux-x64.run
-	sudo ./portugol-studio-2.7.5-linux-x64.run
+	if [ -f "/usr/bin/portugol-studio" ]; then
+		echo "Portugol Studio ja instalado!"
+	else
+		mkdir -p $TEMP_INSTALL_DIR
+		cd $TEMP_INSTALL_DIR
+		echo 49f4d1807e883076d8a0c918acf99a1541abf139f96ad3e83fe0278858a552e5  portugol-studio-2.7.5-linux-x64.run.zip > portugol-studio-SHA256SUMS
+		wget https://github.com/UNIVALI-LITE/Portugol-Studio/releases/download/v2.7.5/portugol-studio-2.7.5-linux-x64.run.zip
+		sha256sum -c portugol-studio-SHA256SUMS
+		unzip portugol-studio-2.7.5-linux-x64.run.zip
+		chmod u+x portugol-studio-2.7.5-linux-x64.run
+		sudo ./portugol-studio-2.7.5-linux-x64.run
+		rm ./portugol-studio-2.7.5-linux-x64.run
+	fi
 }
 
 function geany-ide {
@@ -148,7 +180,7 @@ function nano-pico {
 function geral {
 	github-cli
 	chromium
-	# virtualbox
+	virtualbox
 }
 
 function github-cli {
@@ -163,9 +195,12 @@ function virtualbox {
 	sudo apt  install -y virtualbox
 }
 
-mkdir /tmp/lab
-cd /tmp/lab
+mkdir $TEMP_INSTALL_DIR
+cd $TEMP_INSTALL_DIR
 all
+
+
+echo --- Arquivos de instalacao temporarios mantidos em $TEMP_INSTALL_DIR
 
 
 
